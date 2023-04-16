@@ -12,8 +12,7 @@ def parse_markdown_to_html_table():
     readme = open("README.md", 'r', encoding="utf8").read()
     html = markdown2.markdown(readme, extras=['tables'])
     soup = BeautifulSoup(html, 'html.parser')
-    table = soup.find("table")
-    return table
+    return soup.find("table")
 
 print("Connecting to Google Sheet...")
 gc = gspread.service_account(filename=GOOGLE_CREDENTIALS_FILE)
